@@ -35,6 +35,7 @@ func parseCmd() *Cmd {
 	return cmd
 }
 
+// 解析失败后调用
 func printUsage() {
 	fmt.Printf("Usage : %s [-options] class [args...]\n", os.Args[0])
 }
