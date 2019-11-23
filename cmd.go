@@ -12,6 +12,7 @@ type Cmd struct {
 	cpOption    string
 	class       string
 	args        []string
+	XjreOption  string // 指定jre目录的位置
 }
 
 // 使用Go内置库flag解析命令行参数
@@ -24,6 +25,7 @@ func parseCmd() *Cmd {
 	flag.BoolVar(&cmd.versionFlag, "version", false, "print version and exit")
 	flag.StringVar(&cmd.cpOption, "classpath", "", "classpath")
 	flag.StringVar(&cmd.cpOption, "cp", "", "classpath")
+	flag.StringVar(&cmd.XjreOption, "Xjre", "", "path to jre")
 
 	flag.Parse()
 
