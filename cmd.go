@@ -1,4 +1,4 @@
-package jvm_in_go
+package main
 
 import (
 	"flag"
