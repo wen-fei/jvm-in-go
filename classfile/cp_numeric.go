@@ -21,3 +21,12 @@ func (self *ConstantFloatInfo) readInfo(reader *ClassReader) {
 	bytes := reader.readUint32()
 	self.val = math.Float32frombits(bytes)
 }
+
+type ConstantLongInfo struct {
+	val int64
+}
+
+func (self *ConstantLongInfo) readInfo(reader *ClassReader) {
+	bytes := reader.readUint64()
+	self.val = int64(bytes)
+}
