@@ -1,5 +1,9 @@
 package classfile
 
+import (
+	"math"
+)
+
 type ConstantIntegerInfo struct {
 	val int32
 }
@@ -7,4 +11,13 @@ type ConstantIntegerInfo struct {
 func (self *ConstantIntegerInfo) readInfo(reader *ClassReader) {
 	bytes := reader.readUint32()
 	self.val = int32(bytes)
+}
+
+type ConstantFloatInfo struct {
+	val float32
+}
+
+func (self *ConstantFloatInfo) readInfo(reader *ClassReader) {
+	bytes := reader.readUint32()
+	self.val = math.Float32frombits(bytes)
 }
