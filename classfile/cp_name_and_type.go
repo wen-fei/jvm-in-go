@@ -1,5 +1,6 @@
 package classfile
 
+// show field or method name and descriptor
 type ConstantNameAndTypeInfo struct {
 	nameIndex       uint16
 	descriptorIndex uint16
