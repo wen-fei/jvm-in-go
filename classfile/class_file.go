@@ -35,7 +35,7 @@ func Parse(classData []byte) (cf *ClassFile, err error) {
 func (self *ClassFile) read(reader *ClassReader) {
 	self.readAndCheckMagic(reader)
 	self.readAndCheckVersion(reader)
-	self.constantPool = readConstanPool(reader)
+	self.constantPool = readConstantPool(reader)
 	self.accessFlags = reader.readUint16()
 	self.thisClass = reader.readUint16()
 	self.superClass = reader.readUint16()
@@ -74,7 +74,7 @@ func (self *ClassFile) MajorVersion() uint16 {
 	return self.majorVersion
 }
 
-func (self *ClassFile) ConstancPool() ConstanPool {
+func (self *ClassFile) ConstantPool() ConstantPool {
 	return self.constantPool
 }
 
@@ -99,4 +99,12 @@ func (self *ClassFile) SuperClassName() string {
 		return self.constantPool.getClassName(self.superClass)
 	}
 	return "" // just java.lang.Object has no super class
+}
+
+func (self *ClassFile) InterfaceNames() []string {
+	names := make([]string, len(self.interfaces))
+	for i, _interface := range self.interfaces {
+		names[i] = self.constantPool.getClassName(_interface)
+	}
+	return names
 }
