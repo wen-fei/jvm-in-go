@@ -14,6 +14,10 @@ type ConstantMethodTypeInfo struct {
 	descriptorIndex uint16
 }
 
+func (self *ConstantMethodTypeInfo) readInfo(reader *ClassReader) {
+	self.descriptorIndex = reader.readUint16()
+}
+
 type ConstantInvokeDynamicInfo struct {
 	bootstrapMethodAttrIndex uint16
 	nameAndTypeIndex         uint16
