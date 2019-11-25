@@ -1,5 +1,7 @@
 package classfile
 
+// only show in ClassFile struct
+// attribute_index must be 2
 type SourceFileAttribute struct {
 	cp              ConstantPool
 	sourceFileIndex uint16
