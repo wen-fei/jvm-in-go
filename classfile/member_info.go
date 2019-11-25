@@ -1,7 +1,7 @@
 package classfile
 
 type MemberInfo struct {
-	cp              uint16
+	cp              ConstantPool
 	accessIndex     uint16
 	nameIndex       uint16
 	descriptorIndex uint16
@@ -28,8 +28,8 @@ func readMember(reader *ClassReader, cp ConstantPool) *MemberInfo {
 	}
 }
 
-func (self *MemberInfo) AccessFlags() uint16 {
-
+func (self *MemberInfo) AccessFlags() string {
+	return self.cp.getUtf8(self.accessIndex)
 }
 
 // find field or method name from constant pool
