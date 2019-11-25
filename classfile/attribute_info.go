@@ -1,5 +1,9 @@
 package classfile
 
+// 23 kinds of attribute_info
+// jvm necessary : 5
+// Java library necessary: 12
+// others(optional): 6
 // attribute_info table
 type AttributeInfo interface {
 	readInfo(reader *ClassReader)
