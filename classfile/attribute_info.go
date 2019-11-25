@@ -14,7 +14,7 @@ func readAttributes(reader *ClassReader, cp ConstantPool) []AttributeInfo {
 	attributesCount := reader.readUint16()
 	attributes := make([]AttributeInfo, attributesCount)
 	for i := range attributes {
-		attributes[i] = readAttribue(reader, cp)
+		attributes[i] = readAttribute(reader, cp)
 	}
 	return attributes
 }
@@ -36,7 +36,7 @@ func newAttributeInfo(attrName string, attrLen uint32, cp ConstantPool) Attribut
 	case "Code":
 		return &CodeAttribute{cp: cp}
 	case "ConstantValue":
-		return &COnstantValueAttribute{}
+		return &ConstantValueAttribute{}
 	case "Deprecated":
 		return &DeprecatedAttribute{}
 	case "Exceptions":
@@ -48,7 +48,7 @@ func newAttributeInfo(attrName string, attrLen uint32, cp ConstantPool) Attribut
 	case "SourceFile":
 		return &SourceFileAttribute{cp: cp}
 	case "Synthetic":
-		return &SyntheticAttribue{}
+		return &SyntheticAttribute{}
 	default:
 		return &UnparsedAttribute{attrName, attrLen, nil}
 	}
