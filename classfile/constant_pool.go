@@ -40,12 +40,12 @@ func (self ConstantPool) getUtf8(index uint16) string {
 	return utf8Info.str
 }
 
-type ConstanInfo interface {
+type ConstantInfo interface {
 	// read constant info and create special Constant struct
 	readInfo(reader *ClassReader)
 }
 
-func readConstantInfo(reader *ClassReader, cp ConstantPool) ConstanInfo {
+func readConstantInfo(reader *ClassReader, cp ConstantPool) ConstantInfo {
 	tag := reader.readUint8()
 	c := newConstantInfo(tag, cp)
 	c.readInfo(reader)
