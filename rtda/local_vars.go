@@ -5,7 +5,7 @@ import "math"
 // local vars table
 type LocalVars []Slot
 
-func NewLocalVars(maxLocals uint) LocalVars {
+func newLocalVars(maxLocals uint) LocalVars {
 	if maxLocals > 0 {
 		return make([]Slot, maxLocals)
 	}
