@@ -23,7 +23,7 @@ func (self *OperandStack) PushInt(val int32) {
 	self.size++
 }
 
-func (self *OperandStack) OpoInt() int32 {
+func (self *OperandStack) PopInt() int32 {
 	self.size--
 	return self.slots[self.size].num
 }
@@ -59,7 +59,7 @@ func (self *OperandStack) PushDouble(val float64) {
 }
 
 func (self *OperandStack) PopDouble() float64 {
-	bits := uint64(self.OpoInt())
+	bits := uint64(self.PopInt())
 	return math.Float64frombits(bits)
 }
 
@@ -68,7 +68,7 @@ func (self *OperandStack) PushRef(ref *Object) {
 	self.size++
 }
 
-func (self *OperandStack) OpoRef() *Object {
+func (self *OperandStack) PopRef() *Object {
 	self.size--
 	ref := self.slots[self.size].ref
 	// help GC
