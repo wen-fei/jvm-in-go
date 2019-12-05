@@ -2,9 +2,10 @@ package rtda
 
 import "math"
 
+// local vars table
 type LocalVars []Slot
 
-func newLocalVars(maxLocals uint) LocalVars {
+func NewLocalVars(maxLocals uint) LocalVars {
 	if maxLocals > 0 {
 		return make([]Slot, maxLocals)
 	}
@@ -28,6 +29,16 @@ func (self LocalVars) SetFloat(index uint, val float32) {
 func (self LocalVars) GetFloat(index uint) float32 {
 	bits := uint32(self[index].num)
 	return math.Float32frombits(bits)
+}
+
+func (self LocalVars) SetDouble(index uint, val float64) {
+	bits := math.Float64bits(val)
+	self[index].num = int32(bits)
+}
+
+func (self LocalVars) GetDouble(index uint) float64 {
+	bits := uint64(self[index].num)
+	return math.Float64frombits(bits)
 }
 
 // long变量需要拆成两个int变量
