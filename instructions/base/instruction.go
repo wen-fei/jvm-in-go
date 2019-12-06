@@ -23,7 +23,7 @@ type BranchInstruction struct {
 }
 
 func (self *BranchInstruction) FetchOperands(reader *BytecodeReader) {
-	self.Offset = int(reader.ReadUint16())
+	self.Offset = int(reader.ReadInt16())
 }
 
 // 存储和加载指令，根据索引存取局部变量表
@@ -32,7 +32,7 @@ type Index8Intstruction struct {
 }
 
 func (self *Index8Intstruction) FetchOperands(reader *BytecodeReader) {
-	self.Index = uint(reader.ReadUint8())
+	self.Index = int(reader.ReadInt8())
 }
 
 type Index16Instruction struct {
@@ -40,5 +40,5 @@ type Index16Instruction struct {
 }
 
 func (self *Index16Instruction) FetchOperands(reader *BytecodeReader) {
-	self.Index = uint(reader.ReadUint16())
+	self.Index = int(reader.ReadInt16())
 }
