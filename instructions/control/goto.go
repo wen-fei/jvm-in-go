@@ -1,4 +1,4 @@
-package comparisons
+package control
 
 import (
 	"github.com/jvm-in-go/instructions/base"
