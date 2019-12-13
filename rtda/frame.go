@@ -29,3 +29,7 @@ func (self *Frame) OperandStack() *OperandStack {
 func (self *Frame) NextPC() int {
 	return self.nextPC
 }
+
+func (self *Frame) SetNextPC(pc int) {
+	self.nextPC = pc
+}
