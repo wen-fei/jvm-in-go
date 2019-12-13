@@ -8,7 +8,7 @@ type Frame struct {
 	operandStack *OperandStack
 
 	thread *Thread
-	nextPc int
+	nextPC int
 }
 
 func newFrame(thread *Thread, maxLocals, maxStack uint) *Frame {
@@ -24,4 +24,8 @@ func (self *Frame) LocalVars() LocalVars {
 }
 func (self *Frame) OperandStack() *OperandStack {
 	return self.operandStack
+}
+
+func (self *Frame) NextPC() int {
+	return self.nextPC
 }
