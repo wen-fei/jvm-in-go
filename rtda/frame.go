@@ -33,3 +33,7 @@ func (self *Frame) NextPC() int {
 func (self *Frame) SetNextPC(pc int) {
 	self.nextPC = pc
 }
+
+func (self *Frame) Thread() *Thread {
+	return self.thread
+}
