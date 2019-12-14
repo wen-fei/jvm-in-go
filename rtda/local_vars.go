@@ -1,6 +1,9 @@
 package rtda
 
-import "math"
+import (
+	"github.com/jvm-in-go/rtda/heap"
+	"math"
+)
 
 // local vars table
 type LocalVars []Slot
@@ -53,10 +56,10 @@ func (self LocalVars) GetLong(index uint) int64 {
 	return int64(high)>>32 | int64(low)
 }
 
-func (self LocalVars) SetRef(index uint, ref *Object) {
+func (self LocalVars) SetRef(index uint, ref *heap.Object) {
 	self[index].ref = ref
 }
 
-func (self LocalVars) GetRef(index uint) *Object {
+func (self LocalVars) GetRef(index uint) *heap.Object {
 	return self[index].ref
 }
