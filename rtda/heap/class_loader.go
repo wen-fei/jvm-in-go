@@ -39,6 +39,20 @@ func (self *ClassLoader) loadNonArrayClass(name string) *Class {
 	return class
 }
 
+// 验证和准备两个阶段
+func link(class *Class) {
+	verify(class)
+	prepare(class)
+}
+
+func prepare(class *Class) {
+	// todo6.4
+}
+
+func verify(class *Class) {
+	// todo
+}
+
 func (self *ClassLoader) readClass(name string) ([]byte, classpath.Entry) {
 	data, entry, err := self.cp.ReadClass(name)
 	if err != nil {
