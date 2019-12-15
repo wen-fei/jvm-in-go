@@ -11,7 +11,7 @@ func (self *ConstantMemberrefInfo) readInfo(reader *ClassReader) {
 	self.nameAndTypeIndex = reader.readUint16()
 }
 
-func (self *ConstantMemberrefInfo) className() string {
+func (self *ConstantMemberrefInfo) ClassName() string {
 	return self.cp.getClassName(self.classIndex)
 }
 
