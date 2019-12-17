@@ -6,3 +6,7 @@ type Slot struct {
 }
 
 type Slots []Slot
+
+func newSlots(slotCount uint) Slots {
+	return Slots{}
+}
