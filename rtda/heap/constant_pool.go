@@ -39,7 +39,7 @@ func newConstantPool(class *Class, cfCp classfile.ConstantPool) *ConstantPool {
 			consts[i] = stringInfo.String() //string
 		case *classfile.ConstantClassInfo:
 			classInfo := cpInfo.(*classfile.ConstantClassInfo)
-			consts[i] = newCLassRef(rtCp, classInfo)
+			consts[i] = newClassRef(rtCp, classInfo)
 		case *classfile.ConstantFieldrefInfo:
 			fieldrefInfo := cpInfo.(*classfile.ConstantFieldrefInfo)
 			consts[i] = newFieldRef(rtCp, fieldrefInfo)
