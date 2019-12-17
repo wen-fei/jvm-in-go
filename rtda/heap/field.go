@@ -16,3 +16,7 @@ func newFields(class *Class, cfFields []*classfile.MemberInfo) []*Field {
 	}
 	return fields
 }
+
+func (self *Field) isLongOrDouble() bool {
+	return self.descriptor == "J" || self.descriptor == "D"
+}
