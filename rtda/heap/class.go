@@ -49,3 +49,7 @@ func (self *Class) getPackageName() string {
 func (self *Class) isSubClassOf(c *Class) bool {
 	return self.superClass == c
 }
+
+func (self *Class) NewObject() interface{} {
+	return newObject(self)
+}
