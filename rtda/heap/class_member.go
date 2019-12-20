@@ -14,3 +14,15 @@ func (self *ClassMember) copyMemberInfo(memberInfo *classfile.MemberInfo) {
 	self.name = memberInfo.Name()
 	self.descriptor = memberInfo.Descriptor()
 }
+
+func (self *ClassMember) IsPublic() bool {
+	return 0 != self.class.accessFlags&ACC_PUBLIC
+}
+
+func (self *ClassMember) IsProtected() bool {
+	return 0 != self.class.accessFlags&ACC_PROTECTED
+}
+
+func (self *ClassMember) IsPrivate() bool {
+	return 0 != self.class.accessFlags&ACC_PRIVATE
+}
