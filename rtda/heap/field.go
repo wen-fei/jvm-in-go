@@ -13,6 +13,7 @@ func newFields(class *Class, cfFields []*classfile.MemberInfo) []*Field {
 	for i, cfField := range cfFields {
 		fields[i] = &Field{}
 		fields[i].class = class
+		fields[i].copyAttributes(cfField)
 		fields[i].copyMemberInfo(cfField)
 	}
 	return fields
@@ -32,4 +33,10 @@ func (self *Field) ConstValueIndex() uint {
 
 func (self *Field) Descriptor() string {
 	return self.descriptor
+}
+
+func (self *Field) copyAttributes(cfField *classfile.MemberInfo) {
+	if valAttr := cfField.ConstantValueAttribute(); valAttr != nil {
+		self.constValueIndex = uint(valAttr.ConstantValueIndex())
+	}
 }
