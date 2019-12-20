@@ -4,7 +4,8 @@ import "github.com/jvm-in-go/classfile"
 
 type Field struct {
 	ClassMember
-	slotId uint
+	constValueIndex uint
+	slotId          uint
 }
 
 func newFields(class *Class, cfFields []*classfile.MemberInfo) []*Field {
