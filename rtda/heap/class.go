@@ -35,3 +35,17 @@ func newClass(cf *classfile.ClassFile) *Class {
 func (self *Class) IsPublic() bool {
 	return 0 != self.accessFlags&ACC_PUBLIC
 }
+
+// 如果类D想访问类C，需要满足两个条件之一：C是
+// public，或者C和D在同一个运行时包内。
+func (self *Class) isAccessibleTo(d *Class) bool {
+	return self.IsPublic() || self.getPackageName() == d.getPackageName()
+}
+
+func (self *Class) getPackageName() string {
+	return self.name
+}
+
+func (self *Class) isSubClassOf(c *Class) bool {
+	return self.superClass == c
+}
