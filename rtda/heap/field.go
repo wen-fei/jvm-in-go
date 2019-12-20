@@ -40,3 +40,18 @@ func (self *Field) copyAttributes(cfField *classfile.MemberInfo) {
 		self.constValueIndex = uint(valAttr.ConstantValueIndex())
 	}
 }
+
+func (self *ClassMember) isAccessibleTo(d *Class) bool {
+	if self.IsPublic() {
+		return true
+	}
+	c := self.class
+	if self.IsProtected() {
+		return d == c || d.isSubClassOf(c) || c.getPackageName() == d.getPackageName()
+	}
+	if !self.IsPrivate() {
+		return c.getPackageName() == d.getPackageName()
+	}
+	return d == c
+
+}
