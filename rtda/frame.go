@@ -37,3 +37,8 @@ func (self *Frame) SetNextPC(pc int) {
 func (self *Frame) Thread() *Thread {
 	return self.thread
 }
+
+// TODO
+func (self *Frame) Method() {
+	return self.
+}
