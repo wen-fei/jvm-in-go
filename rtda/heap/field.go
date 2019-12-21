@@ -28,11 +28,7 @@ func (self *Field) SlotId() uint {
 }
 
 func (self *Field) ConstValueIndex() uint {
-	return 0
-}
-
-func (self *Field) Descriptor() string {
-	return self.descriptor
+	return self.constValueIndex
 }
 
 func (self *Field) copyAttributes(cfField *classfile.MemberInfo) {
@@ -55,6 +51,12 @@ func (self *ClassMember) isAccessibleTo(d *Class) bool {
 	return d == c
 }
 
-func (self *Field) Class() *Class {
-	return self.class
+func (self *Field) IsVolatile() bool {
+	return 0 != self.accessFlags&ACC_VOLATILE
+}
+func (self *Field) IsTransient() bool {
+	return 0 != self.accessFlags&ACC_TRANSIENT
+}
+func (self *Field) IsEnum() bool {
+	return 0 != self.accessFlags&ACC_ENUM
 }
