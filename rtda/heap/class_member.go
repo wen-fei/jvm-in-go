@@ -3,7 +3,7 @@ package heap
 import "github.com/jvm-in-go/classfile"
 
 type ClassMember struct {
-	accessFlags string
+	accessFlags uint16
 	name        string
 	descriptor  string
 	class       *Class
