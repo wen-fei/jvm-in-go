@@ -26,3 +26,13 @@ func (self *ClassMember) IsProtected() bool {
 func (self *ClassMember) IsPrivate() bool {
 	return 0 != self.class.accessFlags&ACC_PRIVATE
 }
+
+func (self *ClassMember) Name() string {
+	return self.name
+}
+func (self *ClassMember) Descriptor() string {
+	return self.descriptor
+}
+func (self *ClassMember) Class() *Class {
+	return self.class
+}
