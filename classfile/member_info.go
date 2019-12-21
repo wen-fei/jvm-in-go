@@ -28,8 +28,8 @@ func readMember(reader *ClassReader, cp ConstantPool) *MemberInfo {
 	}
 }
 
-func (self *MemberInfo) AccessFlags() string {
-	return self.cp.getUtf8(self.accessIndex)
+func (self *MemberInfo) AccessFlags() uint16 {
+	return self.accessIndex
 }
 
 // find field or method name from constant pool
