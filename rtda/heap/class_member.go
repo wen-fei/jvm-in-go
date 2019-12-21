@@ -27,6 +27,14 @@ func (self *ClassMember) IsPrivate() bool {
 	return 0 != self.class.accessFlags&ACC_PRIVATE
 }
 
+func (self *Field) IsStatic() bool {
+	return 0 != self.accessFlags&ACC_STATIC
+}
+
+func (self *Field) IsFinal() bool {
+	return 0 != self.accessFlags&ACC_FINAL
+}
+
 func (self *ClassMember) Name() string {
 	return self.name
 }
