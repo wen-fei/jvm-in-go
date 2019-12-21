@@ -47,6 +47,10 @@ func (self *Method) IsStrict() bool {
 	return 0 != self.accessFlags&ACC_STRICT
 }
 
+func (self *Method) IsStatic() bool {
+	return 0 != self.accessFlags&ACC_STATIC
+}
+
 // getters
 func (self *Method) MaxStack() uint {
 	return self.maxStack
