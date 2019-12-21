@@ -1,14 +1,16 @@
 package rtda
 
+import "github.com/jvm-in-go/rtda/heap"
+
 type Frame struct {
 	lower *Frame
 	// 局部变量表指针
 	localVars LocalVars
 	// 操作数栈指针
 	operandStack *OperandStack
-
-	thread *Thread
-	nextPC int
+	method       *heap.Method
+	thread       *Thread
+	nextPC       int
 }
 
 func newFrame(thread *Thread, maxLocals, maxStack uint) *Frame {
@@ -38,7 +40,6 @@ func (self *Frame) Thread() *Thread {
 	return self.thread
 }
 
-// TODO
-func (self *Frame) Method() {
-	return self.
+func (self *Frame) Method() *heap.Method {
+	return self.method
 }
