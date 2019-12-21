@@ -57,7 +57,3 @@ func (self *Method) MaxLocals() uint {
 func (self *Method) Code() []byte {
 	return self.code
 }
-
-func (self *Method) Class() *Class {
-	return self.class
-}
