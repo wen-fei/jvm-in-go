@@ -53,5 +53,8 @@ func (self *ClassMember) isAccessibleTo(d *Class) bool {
 		return c.getPackageName() == d.getPackageName()
 	}
 	return d == c
+}
 
+func (self *Field) Class() *Class {
+	return self.class
 }
