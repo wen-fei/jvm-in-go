@@ -50,8 +50,13 @@ func (self *Class) getPackageName() string {
 	return ""
 }
 
-func (self *Class) isSubClassOf(c *Class) bool {
-	return self.superClass == c
+func (self *Class) isSubClassOf(other *Class) bool {
+	for c := self.superClass; c != nil; c = c.superClass {
+		if c == other {
+			return true
+		}
+	}
+	return false
 }
 
 func (self *Class) NewObject() *Object {
