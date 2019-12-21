@@ -50,6 +50,17 @@ func (self *Class) isSubClassOf(c *Class) bool {
 	return self.superClass == c
 }
 
-func (self *Class) NewObject() interface{} {
+func (self *Class) NewObject() *Object {
 	return newObject(self)
+}
+
+func (self *Class) IsInterface() bool {
+	return 0 != self.accessFlags&ACC_INTERFACE
+}
+func (self *Class) IsAbstract() bool {
+	return 0 != self.accessFlags&ACC_ABSTRACT
+}
+
+func (self *Class) ConstantPool() *ConstantPool {
+	return self.constantPool
 }
