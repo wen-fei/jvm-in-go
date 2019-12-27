@@ -4,9 +4,10 @@ import "github.com/jvm-in-go/classfile"
 
 type Method struct {
 	ClassMember
-	maxStack  uint
-	maxLocals uint
-	code      []byte
+	maxStack     uint
+	maxLocals    uint
+	code         []byte
+	argSlotCount uint
 }
 
 func newMethods(class *Class, cfMethods []*classfile.MemberInfo) []*Method {
@@ -60,4 +61,8 @@ func (self *Method) MaxLocals() uint {
 }
 func (self *Method) Code() []byte {
 	return self.code
+}
+
+func (self *Method) ArgSlotCount() uint {
+	return self.argSlotCount
 }
