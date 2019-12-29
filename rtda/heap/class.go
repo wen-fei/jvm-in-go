@@ -96,3 +96,15 @@ func (self *Class) getStaticMethod(name, descriptor string) *Method {
 func (self *Class) StaticVars() Slots {
 	return self.staticVars
 }
+
+func (self *Class) IsSuperClassOf(class *Class) bool {
+
+}
+
+func (self *Class) GetPackageName() string {
+
+}
+
+func (self *Class) IsSuper() bool {
+
+}
